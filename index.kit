@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Zero</title>
+</head>
+<svg style="display: none;">
+    <symbol id="facebook" viewBox="0 0 155.139 155.139">
+        <g>
+            <path d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184
+                c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452
+                v20.341H37.29v27.585h23.814v70.761H89.584z" />
+        </g>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 512 512">
+        <g>
+            <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+                c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+                c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+                c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+                c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+                c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+                C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+                C480.224,136.96,497.728,118.496,512,97.248z" />
+        </g>
+    </symbol>
+    <symbol id="pinterest" viewBox="0 0 438.529 438.529">
+        <g>
+            <path d="M409.141,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.751,9.801,259.065,0,219.281,0
+                C179.5,0,142.812,9.801,109.22,29.407c-33.597,19.604-60.194,46.201-79.8,79.796C9.809,142.8,0.008,179.485,0.008,219.267
+                c0,44.35,12.085,84.611,36.258,120.767c24.172,36.172,55.863,62.912,95.073,80.232c-0.762-20.365,0.476-37.209,3.709-50.532
+                l28.267-119.348c-4.76-9.329-7.139-20.93-7.139-34.831c0-16.175,4.089-29.689,12.275-40.541
+                c8.186-10.85,18.177-16.274,29.979-16.274c9.514,0,16.841,3.14,21.982,9.42c5.142,6.283,7.705,14.181,7.705,23.7
+                c0,5.896-1.099,13.084-3.289,21.554c-2.188,8.471-5.041,18.273-8.562,29.409c-3.521,11.132-6.045,20.036-7.566,26.692
+                c-2.663,11.608-0.476,21.553,6.567,29.838c7.042,8.278,16.372,12.423,27.983,12.423c20.365,0,37.065-11.324,50.107-33.972
+                c13.038-22.655,19.554-50.159,19.554-82.514c0-24.938-8.042-45.21-24.129-60.813c-16.085-15.609-38.496-23.417-67.239-23.417
+                c-32.161,0-58.192,10.327-78.082,30.978c-19.891,20.654-29.836,45.352-29.836,74.091c0,17.132,4.854,31.505,14.56,43.112
+                c3.235,3.806,4.283,7.898,3.14,12.279c-0.381,1.143-1.141,3.997-2.284,8.562c-1.138,4.565-1.903,7.522-2.281,8.851
+                c-1.521,6.091-5.14,7.994-10.85,5.708c-14.654-6.085-25.791-16.652-33.402-31.689c-7.614-15.037-11.422-32.456-11.422-52.246
+                c0-12.753,2.047-25.505,6.14-38.256c4.089-12.756,10.468-25.078,19.126-36.975c8.663-11.9,19.036-22.417,31.123-31.549
+                c12.082-9.135,26.787-16.462,44.108-21.982s35.972-8.28,55.959-8.28c27.032,0,51.295,5.995,72.8,17.986
+                c21.512,11.992,37.925,27.502,49.252,46.537c11.327,19.036,16.987,39.403,16.987,61.101c0,28.549-4.948,54.243-14.842,77.086
+                c-9.896,22.839-23.887,40.778-41.973,53.813c-18.083,13.042-38.637,19.561-61.675,19.561c-11.607,0-22.456-2.714-32.548-8.135
+                c-10.085-5.427-17.034-11.847-20.839-19.273c-8.566,33.685-13.706,53.77-15.42,60.24c-3.616,13.508-11.038,29.119-22.27,46.819
+                c20.367,6.091,41.112,9.13,62.24,9.13c39.781,0,76.47-9.801,110.062-29.41c33.595-19.602,60.192-46.199,79.794-79.791
+                c19.606-33.599,29.407-70.287,29.407-110.065C438.527,179.485,428.74,142.795,409.141,109.203z" />
+        </g>
+    </symbol>
+    <symbol id="whatsapp" viewBox="0 0 512 512">
+        <g>
+            <path
+                d="M256.064,0h-0.128C114.784,0,0,114.816,0,256c0,56,18.048,107.904,48.736,150.048l-31.904,95.104l98.4-31.456
+                C155.712,496.512,204,512,256.064,512C397.216,512,512,397.152,512,256S397.216,0,256.064,0z M405.024,361.504
+                c-6.176,17.44-30.688,31.904-50.24,36.128c-13.376,2.848-30.848,5.12-89.664-19.264C189.888,347.2,141.44,270.752,137.664,265.792
+                c-3.616-4.96-30.4-40.48-30.4-77.216s18.656-54.624,26.176-62.304c6.176-6.304,16.384-9.184,26.176-9.184
+                c3.168,0,6.016,0.16,8.576,0.288c7.52,0.32,11.296,0.768,16.256,12.64c6.176,14.88,21.216,51.616,23.008,55.392
+                c1.824,3.776,3.648,8.896,1.088,13.856c-2.4,5.12-4.512,7.392-8.288,11.744c-3.776,4.352-7.36,7.68-11.136,12.352
+                c-3.456,4.064-7.36,8.416-3.008,15.936c4.352,7.36,19.392,31.904,41.536,51.616c28.576,25.44,51.744,33.568,60.032,37.024
+                c6.176,2.56,13.536,1.952,18.048-2.848c5.728-6.176,12.8-16.416,20-26.496c5.12-7.232,11.584-8.128,18.368-5.568
+                c6.912,2.4,43.488,20.48,51.008,24.224c7.52,3.776,12.48,5.568,14.304,8.736C411.2,329.152,411.2,344.032,405.024,361.504z" />
+        </g>
+    </symbol>
+</svg>
+
+<body>
+    <div class="page">
+        <!-- @import "header.html" -->
+        <section class="logo">
+            <img src="img/logo.png" alt="logo">
+        </section>
+        <section class="items">
+            <div class="items__body">
+                <div class="item-inner">
+                    <div class="item-inner__column">
+                        <div class="item-inner__content content-item">
+                            <div class="content-item__header header-img">
+                                <div class="header-img__img">
+                                    <a href="#">
+                                        <img src="img/pic1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header-img__triang"></div>
+                            </div>
+                            <div class="content-item__bottom">
+                                <div class="content-item__title">Lorem Ipsum is simply dummy text of the printing</div>
+                                <span></span>
+                                <div class="content-item__text">Jeans and shirt</div>
+                                <div class="content-item__cover"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-inner__column">
+                        <div class="item-inner__content content-item">
+                            <div class="content-item__header header-img">
+                                <div class="header-img__img">
+                                    <a href="#">
+                                        <img src="img/pic2.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header-img__triang"></div>
+                            </div>
+                            <div class="content-item__bottom">
+                                <div class="content-item__title">Lorem Ipsum is simply dummy text of the printing</div>
+                                <span></span>
+                                <div class="content-item__text">Good Shoes For Men, Blue and Brown combination</div>
+                                <div class="content-item__cover"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-inner__column">
+                        <div class="item-inner__content content-item">
+                            <div class="content-item__header header-img">
+                                <div class="header-img__img">
+                                    <a href="#">
+                                        <img src="img/pic3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header-img__triang"></div>
+                            </div>
+                            <div class="content-item__bottom">
+                                <div class="content-item__title">Lorem Ipsum is simply dummy text of the printing</div>
+                                <span></span>
+                                <div class="content-item__text">Display And Store</div>
+                                <div class="content-item__cover"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-inner__column">
+                        <div class="item-inner__content content-item">
+                            <div class="content-item__header header-img">
+                                <div class="header-img__img">
+                                    <a href="#">
+                                        <img src="img/pic4.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="header-img__triang"></div>
+                            </div>
+                            <div class="content-item__bottom">
+                                <div class="content-item__title">Lorem Ipsum is simply dummy text of the printing</div>
+                                <span></span>
+                                <div class="content-item__text">Leather Shoes</div>
+                                <div class="content-item__cover"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="columns">
+            <div class="container">
+                <div class="columns__inner">
+                    <section class="posts">
+                        <div class="posts-item item-post">
+                            <div class="item-post__header">
+                                <img src="img/n1.png" alt="">
+                            </div>
+                            <div class="item-post__body">
+                                <div class="subtext"><span class="red">in </span> Relationship</div>
+                                <h1 class="item-post__title">Being Atraveler in The World, Just Like A lion Without Beard
+                                </h1>
+                                <div class="subtext"><span class="red">Posted on </span> August 17, 2017 - <span
+                                        class="red"> by
+                                    </span> Cool Man
+                                </div>
+                                <div class="item-post__text">
+                                    Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of " de Finibus Bonorum et Malorum " (The Extremes of Good and
+                                    Evil) by Cicero,
+                                    written in 45 BC.
+                                </div>
+                                <div class="social bottom">
+                                    <ul class="social__list center">
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#pinterest"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-item item-post">
+                            <div class="item-post__header">
+                                <img src="img/male.png" alt="">
+                            </div>
+                            <div class="item-post__body">
+                                <div class="subtext"><span class="red">in </span> Relationship</div>
+                                <h1 class="item-post__title">Being Atraveler in The World, Just Like A lion Without Beard
+                                </h1>
+                                <div class="subtext"><span class="red">Posted on </span> August 17, 2017 - <span
+                                        class="red"> by
+                                    </span> Cool Man
+                                </div>
+                                <div class="item-post__text">
+                                    Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of " de Finibus Bonorum et Malorum " (The Extremes of Good and
+                                    Evil) by Cicero,
+                                    written in 45 BC.
+                                </div>
+                                <div class="social bottom">
+                                    <ul class="social__list center">
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#pinterest"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-item item-post">
+                            <div class="item-post__header">
+                                <img src="img/girl.png" alt="">
+                            </div>
+                            <div class="item-post__body">
+                                <div class="subtext"><span class="red">in </span> Relationship</div>
+                                <h1 class="item-post__title">Being Atraveler in The World, Just Like A lion Without Beard
+                                </h1>
+                                <div class="subtext"><span class="red">Posted on </span> August 17, 2017 - <span
+                                        class="red"> by
+                                    </span> Cool Man
+                                </div>
+                                <div class="item-post__text">
+                                    Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of " de Finibus Bonorum et Malorum " (The Extremes of Good and
+                                    Evil) by Cicero,
+                                    written in 45 BC.
+                                </div>
+                                <div class="social bottom">
+                                    <ul class="social__list center">
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#pinterest"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-item item-post">
+                            <div class="item-post__header">
+                                <img src="img/man2.png" alt="">
+                            </div>
+                            <div class="item-post__body">
+                                <div class="subtext"><span class="red">in </span> Relationship</div>
+                                <h1 class="item-post__title">Being Atraveler in The World, Just Like A lion Without Beard
+                                </h1>
+                                <div class="subtext"><span class="red">Posted on </span> August 17, 2017 - <span
+                                        class="red"> by
+                                    </span> Cool Man
+                                </div>
+                                <div class="item-post__text">
+                                    Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of " de Finibus Bonorum et Malorum " (The Extremes of Good and
+                                    Evil) by Cicero,
+                                    written in 45 BC.
+                                </div>
+                                <div class="social bottom">
+                                    <ul class="social__list center">
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#pinterest"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posts-item item-post">
+                            <div class="item-post__header">
+                                <img src="img/cup.png" alt="">
+                            </div>
+                            <div class="item-post__body">
+                                <div class="subtext"><span class="red">in </span> Relationship</div>
+                                <h1 class="item-post__title">Being Atraveler in The World, Just Like A lion Without Beard
+                                </h1>
+                                <div class="subtext"><span class="red">Posted on </span> August 17, 2017 - <span
+                                        class="red"> by
+                                    </span> Cool Man
+                                </div>
+                                <div class="item-post__text">
+                                    Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                                    1.10.32 and 1.10.33 of " de Finibus Bonorum et Malorum " (The Extremes of Good and
+                                    Evil) by Cicero,
+                                    written in 45 BC.
+                                </div>
+                                <div class="social bottom">
+                                    <ul class="social__list center">
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#facebook"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#twitter"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#whatsapp"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" class="social__link black">
+                                                <svg class="social__icon">
+                                                    <use xlink:href="#pinterest"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrows">
+                            <ul class="arrows__list">
+                                <li>
+                                    <a class="arrows__link" href="#">Older Post</a>
+                                </li>
+                                <li>
+                                    <a class="arrows__link" href="#">Newer Post</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <aside class="sidebar">
+                        <div class="sidebar__item">
+                            <div class="about">
+                                <h2 class="about__title title">About Me</h2>
+                                <div class="about__picture">
+                                    <img src="img/man.png" alt="">
+                                </div>
+                                <p class="about__text">Lorem Ipsum passage, and going through the cites of the word in
+                                    classical literature, discovered the undoubtable source</p>
+                            </div>
+                        </div>
+                        <div class="sidebar__item">
+                            <div class="subscribe">
+                                <h2 class="subscribe__title">Subscribe</h2>                              
+                                <p class="subscribe__text">Subscribe to Our newsletter for free Update every week</p>
+                                <div class="form__inner">
+                                    <form>
+                                        <input class="mail" type="email" placeholder="Your Email">
+                                        <button class="btn" type="submit">Subscribe</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__item">
+                            <div class="popular">
+                                <h2 class="popular__title title">Popular Post</h2>
+                                <div class="popular__item">
+                                    <div class="popular__img">
+                                        <img src="img/n1lil.png" alt="">
+                                    </div>
+                                    <div class="popular__inner">
+                                        <h2 class="item-post__title lil">Being Atraveler in The World, Just Like A lion Without Beard</h2>
+                                        <div class="subtext"><span class="red">Posted on</span> August 17, 2017</div>
+                                    </div>
+                                </div>
+                                <div class="popular__item">
+                                    <div class="popular__img">
+                                        <img src="img/malelil.png" alt="">
+                                    </div>
+                                    <div class="popular__inner">
+                                        <h2 class="item-post__title lil">Lorem Ipsum Dolor Sit met , Just a Dummy text for Content</h2>
+                                        <div class="subtext"><span class="red">Posted on</span> August 17, 2017</div>
+                                    </div>
+                                </div>
+                                <div class="popular__item">
+                                    <div class="popular__img">
+                                        <img src="img/cuplil.png" alt="">
+                                    </div>
+                                    <div class="popular__inner">
+                                        <h2 class="item-post__title lil">Just a Dummy text for Content, Lorem Ipsum</h2>
+                                        <div class="subtext"><span class="red">Posted on</span> August 17, 2017</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar__item">
+                            <div class="category">
+                                <h2 class="category__title title">Category</h2>
+                                <ul class="category__list">
+                                    <li>
+                                        <a class="category__link" href="">Beard</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">Travel</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">Sun Rise</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">Village</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">Night Fall</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">City</a>
+                                    </li>
+                                    <li>
+                                        <a class="category__link" href="">Local Food</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar__item">
+                            <div class="slider">
+                                <h2 class="slider__title title">Slider Ads</h2>
+                                <div class="slider__img">
+                                    <img class="ad" src="img/ad.png" alt="">
+                                </div>                                 
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <!-- @import "footer.html" -->
+    </div>
+</body>
+
+</html>
